@@ -1,3 +1,4 @@
+import Card from "../components/Card"
 
 
 const Home = () => {
@@ -21,7 +22,7 @@ const Home = () => {
             </div>
         </div>
         <div className="text-white grid grid-cols-4 gap-4 mt-28 w-[80%] mx-auto">
-            
+            <Card/>
         </div>
     </>
   )
