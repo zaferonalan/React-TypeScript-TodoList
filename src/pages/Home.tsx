@@ -2,7 +2,7 @@ import Card from "../components/Card"
 
 
 const Home = () => {
-  return (
+   return (
     <>
         <div className="flex justify-center text-white">
             <div className="w-[60%] bg-custom-darkGray p-5 flex justify-center items-center">
