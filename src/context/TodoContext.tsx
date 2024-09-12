@@ -9,6 +9,7 @@ export interface Todo {
 interface TodoProviderProp {
     todoList: Todo[]
     addTodolist: (x:Todo) => void
+    removeTodolist: (x:number) => void
 }
 
 export const TodoContext = createContext<TodoProviderProp | undefined>(undefined)
@@ -28,8 +29,17 @@ export const TodoProvider = ({children}: {children:ReactNode}) => {
         setTodoList((prevTodolist) => [...prevTodolist, newTodo] )
     }
 
+    const removeTodolist = (id:number) => {
+        setTodoList(
+            todoList.filter((todo) => {
+                return todo.id !== id
+            })
+        )
+    }
+
+
     return(
-        <TodoContext.Provider value={{todoList, addTodolist}}>
+        <TodoContext.Provider value={{todoList, addTodolist, removeTodolist}}>
             {children}
         </TodoContext.Provider>
     )
