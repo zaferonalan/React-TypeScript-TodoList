@@ -10,6 +10,7 @@ interface TodoProviderProp {
     todoList: Todo[]
     addTodolist: (x:Todo) => void
     removeTodolist: (x:number) => void
+    editTodolist: (updateTodos:Todo) => void
 }
 
 export const TodoContext = createContext<TodoProviderProp | undefined>(undefined)
@@ -37,9 +38,12 @@ export const TodoProvider = ({children}: {children:ReactNode}) => {
         )
     }
 
+    const editTodolist = (updateTodos:Todo) => {
+        setTodoList(prevTodos => prevTodos.map((todo) => todo.id === updateTodos.id ? updateTodos : todo))
+    }
 
     return(
-        <TodoContext.Provider value={{todoList, addTodolist, removeTodolist}}>
+        <TodoContext.Provider value={{todoList, addTodolist, removeTodolist,editTodolist}}>
             {children}
         </TodoContext.Provider>
     )

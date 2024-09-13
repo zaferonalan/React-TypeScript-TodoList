@@ -5,7 +5,7 @@ import { Todo } from "../context/TodoContext"
 
 
 const Home = () => {
-   const {todoList,addTodolist,removeTodolist} = useTodo()
+   const {todoList,addTodolist,removeTodolist,editTodolist} = useTodo()
    const [title, setTitle] = useState<string>("")
    const [description, setDescription] = useState<string>("")
 
@@ -52,7 +52,7 @@ const Home = () => {
         <div className="text-white grid grid-cols-4 gap-4 mt-28 w-[80%] mx-auto">
             {
                 todoList.map((todo) => (
-                    <Card key={todo.id} todo={todo} removeTodolist={removeTodolist}/>
+                    <Card key={todo.id} todo={todo} removeTodolist={removeTodolist} editTodolist={editTodolist}/>
                 ))
             }
         </div>
